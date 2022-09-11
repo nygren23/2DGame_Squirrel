@@ -1,6 +1,9 @@
 extends Node
 
 export (PackedScene) var mob_scene
+export (PackedScene) var bullet
+
+
 var score = 0
 
 func _ready():
@@ -12,6 +15,7 @@ func new_game():
 	
 	get_tree().call_group("mobs", "queue_free")
 	$Player.start($StartPosition.position)
+	
 	
 	$StartTimer.start()
 	$Music.play()
@@ -29,6 +33,8 @@ func game_over():
 	$HUD.show_game_over()
 	$Music.stop()
 	$DeathSound.play()
+
+	$Player.setGameStart()
 
 func _on_MobTimer_timeout():
 	var mob_spawn_location = $MobPath/MobSpawnLocation
@@ -51,3 +57,8 @@ func _on_MobTimer_timeout():
 func _on_ScoreTimer_timeout():
 	score += 1
 	$HUD.update_score(score)
+
+#func _spawn_bullet():
+	#add_child(mob)
+	
+

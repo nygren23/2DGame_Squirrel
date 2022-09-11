@@ -2,8 +2,12 @@ extends Area2D
 
 signal hit
 
+var game_start = false
+
 export var speed = 400.0
 var screen_size = Vector2.ZERO
+
+var bulletPath = preload('res://Bullet.tscn')
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -11,6 +15,12 @@ func _ready():
 
 func _process(delta):
 	var direction = Vector2.ZERO
+	
+
+	
+	if Input.is_action_just_pressed("click") and game_start:
+		
+		shoot()
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -45,9 +55,23 @@ func start(new_position):
 	position = new_position
 	show()
 	$CollisionShape2D.disabled = false
+	setGameStart()
 	
 
 func _on_Player_body_entered(body):
 	hide()
 	$CollisionShape2D.set_deferred("disabled", true)
 	emit_signal("hit")
+
+func shoot():
+	var bullet = bulletPath.instance()
+	get_parent().add_child(bullet)
+	bullet.position = $Position2D.global_position
+	
+	
+
+func setGameStart():
+	if(game_start):
+		game_start = false
+	else:
+		game_start = true

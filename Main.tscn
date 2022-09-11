@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Mob.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Bullet.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -13,11 +14,12 @@ _data = {
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
 mob_scene = ExtResource( 2 )
+bullet = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.378906, 0.279046, 0.190933, 1 )
+color = Color( 0.0980392, 0.945098, 0.027451, 1 )
 
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource( 1 )
@@ -30,6 +32,9 @@ wait_time = 0.5
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -40, 61 )
 scale = Vector2( 0.4, 0.1 )
+
+[node name="Bullet" parent="." instance=ExtResource( 5 )]
+position = Vector2( -144, 64 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
