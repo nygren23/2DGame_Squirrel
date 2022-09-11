@@ -29,6 +29,7 @@ wait_time = 0.5
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -40, 61 )
+scale = Vector2( 0.4, 0.1 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
