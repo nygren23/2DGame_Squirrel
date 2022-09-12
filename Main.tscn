@@ -21,7 +21,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.0980392, 0.945098, 0.027451, 1 )
 
+[node name="endOfMatchTimer" type="Timer" parent="."]
+wait_time = 20.0
+
 [node name="MobPath" type="Path2D" parent="."]
+scale = Vector2( 2.25208, 1.50417 )
 curve = SubResource( 1 )
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
@@ -44,12 +48,53 @@ position = Vector2( -144, 64 )
 one_shot = true
 
 [node name="StartPosition" type="Position2D" parent="."]
-position = Vector2( 240, 480 )
+position = Vector2( 539, 686 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 
+[node name="enemySpawnPoint0" type="Position2D" parent="."]
+position = Vector2( 1001, 96 )
+
+[node name="enemySpawnPoint1" type="Position2D" parent="."]
+position = Vector2( 157, 984 )
+
+[node name="enemySpawnPoint2" type="Position2D" parent="."]
+position = Vector2( 990, 990 )
+
+[node name="enemySpawnPoint3" type="Position2D" parent="."]
+position = Vector2( 91, 101 )
+
+[node name="spawn_marker0" type="Label" parent="."]
+margin_left = 50.0
+margin_top = 94.0
+margin_right = 141.0
+margin_bottom = 108.0
+text = "spawn_location"
+
+[node name="spawn_marker3" type="Label" parent="."]
+margin_left = 938.0
+margin_top = 985.0
+margin_right = 1035.0
+margin_bottom = 999.0
+text = "spawn_location"
+
+[node name="spawn_marker2" type="Label" parent="."]
+margin_left = 99.0
+margin_top = 973.0
+margin_right = 196.0
+margin_bottom = 987.0
+text = "spawn_location"
+
+[node name="spawn_marker1" type="Label" parent="."]
+margin_left = 948.0
+margin_top = 91.0
+margin_right = 1045.0
+margin_bottom = 105.0
+text = "spawn_location"
+
+[connection signal="timeout" from="endOfMatchTimer" to="." method="_on_endOfMatchTimer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]

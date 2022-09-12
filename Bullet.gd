@@ -34,6 +34,6 @@ func _process(delta):
 
 
 func _on_Bullet_area_entered(area):
-	print("Target Shot _on_Bullet_area_entered")
+	print("enemy hit")
 	queue_free()
 

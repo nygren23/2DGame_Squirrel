@@ -19,7 +19,6 @@ func _process(delta):
 
 	
 	if Input.is_action_just_pressed("click") and game_start:
-		
 		shoot()
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
