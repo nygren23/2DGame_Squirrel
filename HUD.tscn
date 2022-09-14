@@ -1,27 +1,29 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://fonts/xolonium-regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://HUD.gd" type="Script" id=2]
 
+[sub_resource type="DynamicFont" id=3]
+size = 74
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=1]
-size = 50
+size = 31
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
+size = 26
 font_data = ExtResource( 1 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
 
 [node name="ScoreLabel" type="Label" parent="."]
-anchor_left = 0.191
-anchor_right = 0.5
-anchor_bottom = 0.073
-margin_left = -89.68
-margin_right = 239.0
-margin_bottom = 8.43999
-custom_fonts/font = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 0.081
+margin_right = 7.0
+margin_bottom = -0.480003
+custom_fonts/font = SubResource( 3 )
 text = "0"
 align = 1
 
@@ -35,10 +37,11 @@ margin_top = -87.0
 margin_right = 241.0
 margin_bottom = -38.0
 rect_pivot_offset = Vector2( 771, -23 )
-custom_fonts/font = SubResource( 2 )
-text = "Dodge the creeps"
+custom_fonts/font = SubResource( 1 )
+text = "Squirrel"
 align = 1
 autowrap = true
+percent_visible = -0.0714286
 
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.5
