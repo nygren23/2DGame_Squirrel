@@ -41,7 +41,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Squirrel"
 align = 1
 autowrap = true
-percent_visible = -0.0714286
 
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.5
