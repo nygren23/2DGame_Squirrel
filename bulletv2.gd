@@ -1,3 +1,5 @@
+#This is a second bullet script. It was a another attempt at
+#making a bullet but it did not work. This script is never used
 extends Area2D
 
 var xdire = 0

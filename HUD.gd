@@ -1,3 +1,5 @@
+#This displays all the user interface. 
+
 extends CanvasLayer
 
 signal start_game
