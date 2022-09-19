@@ -29,7 +29,7 @@ one_shot = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -40, 61 )
-scale = Vector2( 0.4, 0.1 )
+scale = Vector2( 0.3, 0.3 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 

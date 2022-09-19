@@ -1,54 +1,57 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://images/player.png" type="Texture" id=1]
+[ext_resource path="res://images/sqrl_R2.png" type="Texture" id=1]
 [ext_resource path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection/Connection.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://images/sqrl_R3.png" type="Texture" id=3]
+[ext_resource path="res://images/sqrl_R4.png" type="Texture" id=4]
 [ext_resource path="res://Player.gd" type="Script" id=5]
+[ext_resource path="res://images/sqrl_R5.png" type="Texture" id=6]
+[ext_resource path="res://images/sqrl_R1.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 45.9548
-height = 88.0857
+radius = 75.0
+height = 136.0
 
 [sub_resource type="DynamicFont" id=3]
 size = 37
 font_data = ExtResource( 2 )
 
 [node name="Player" type="Area2D"]
-position = Vector2( 242, 360 )
+position = Vector2( 240, 363 )
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-rotation = 1.56875
-scale = Vector2( 0.0947916, 0.0925926 )
+position = Vector2( 118, 81 )
+scale = Vector2( 11.2286, 12.7778 )
 frames = SubResource( 1 )
 animation = "right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -1 )
-rotation = -0.00604433
+position = Vector2( 123, 107 )
+rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 107, -7 )
+position = Vector2( 110, 95 )
 
 [node name="health" type="Label" parent="."]
-margin_left = 16.0
-margin_top = -22.0
-margin_right = 75.0
-margin_bottom = 16.0
-rect_rotation = 90.3855
+margin_left = -4.0
+margin_top = -160.0
+margin_right = 55.0
+margin_bottom = -122.0
 custom_fonts/font = SubResource( 3 )
 text = "100"
 
