@@ -24,7 +24,7 @@ func new_game():
 		newGame = false
 		$HUD.update_score(score)
 		
-	$Player.start($StartPosition.position)#spawns the player
+	$Player.start($StartPosition.position) #spawns the player
 	$StartTimer.start()
 	$Music.play()
 	
@@ -32,8 +32,14 @@ func new_game():
 	safe  = false 
 	yield($StartTimer, "timeout")
 	$ScoreTimer.start()
-	$MobTimer.start()
+#can comment out to debug without enemies
+	#$MobTimer.start()
 	$endOfMatchTimer.start()
+	
+func new_game_cheated():
+	$Player.setAcorns(999)
+	$Player.setHealth(999)
+	new_game()
 	
 #activates when player runs out of health 	
 func game_over():
@@ -58,9 +64,9 @@ func _on_MobTimer_timeout():
 	get_parent().add_child(mob)
 	mob.position = spawn_array[my_random_number].global_position
 
-#adds one to the score for every second the player lives 
+#adds ten to the score for every second the player lives 
 func _on_ScoreTimer_timeout():
-	score += 1
+	score += 10
 	$HUD.update_score(score)
 
 #plays when the match is over. 
@@ -73,10 +79,21 @@ func _on_endOfMatchTimer_timeout():
 	$Music.stop()
 	$Player.setGameStart()
 	
-
+#"main" function - runs every frame
+func _process(delta):
+	if $Player.game_start:
+		$HUD.show_all()
+		$HUD.update_time(int($endOfMatchTimer.time_left))
+		$HUD.update_acorns($Player.acorns)
+	else:
+		$HUD.hide_all()
+		if Input.is_action_just_pressed("cheat_code"):			
+			$HUD/NuxMode.show() if !$HUD/NuxMode.visible else $HUD/NuxMode.hide()
+		
 func getSafe():
 	return safe
 
 func addToScore(bonus):
 	score += bonus
 	$HUD.update_score(score)
+

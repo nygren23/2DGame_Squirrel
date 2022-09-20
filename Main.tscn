@@ -85,3 +85,4 @@ text = "spawn_location"
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="start_game_cheated" from="HUD" to="." method="new_game_cheated"]

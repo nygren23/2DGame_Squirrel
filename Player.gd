@@ -5,9 +5,13 @@ signal hit
 
 var game_start = false #if the game has started yet
 
+var health = 4
+var acorns = 5
+
 export var speed = 400.0 #how fast the player moves
 var screen_size = Vector2.ZERO #screen size. Its actual size is set later
 var bulletPath = preload('res://Bullet.tscn')
+
 
 #before the game starts. Screen size is set and hides the player
 func _ready():
@@ -71,14 +75,21 @@ func _on_Player_body_entered(body):
 
 #shoots a bullet where ever the mouse is.
 func shoot():
-	var bullet = bulletPath.instance()
-	get_parent().add_child(bullet)
-	bullet.position = $Position2D.global_position
-	
-	
+	if(acorns > 0):
+		var bullet = bulletPath.instance()
+		get_parent().add_child(bullet)
+		bullet.position = $Position2D.global_position
+		acorns -= 1
+		
 #sets when the game starts.
 func setGameStart():
 	if(game_start):
 		game_start = false
 	else:
 		game_start = true
+		
+func setHealth(newHealth):
+	health = newHealth
+
+func setAcorns(newAcorns):
+	acorns = newAcorns
