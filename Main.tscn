@@ -14,7 +14,7 @@ bullet = ExtResource( 5 )
 [node name="background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.0980392, 0.945098, 0.027451, 1 )
+color = Color( 0.482353, 0.878431, 0.333333, 1 )
 
 [node name="endOfMatchTimer" type="Timer" parent="."]
 wait_time = 20.0

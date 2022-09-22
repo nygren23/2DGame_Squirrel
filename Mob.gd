@@ -4,9 +4,10 @@ extends RigidBody2D
 
 signal dies
 
+
 export var min_speed = 400 # min speed not used 
 export var max_speed = 500 # max speed not sued 
-export var speed = 320 # default speed is used for all enemies that spawn
+export var speed = 200 # default speed is used for all enemies that spawn
 onready var player = get_node("/root/Main/Player")
 onready var main = get_node("/root/Main")
 
@@ -21,6 +22,12 @@ func _process(delta):
 	#if the game or round ends then the enemy despawns
 	if(main.getSafe()):
 		queue_free()
+	
+	if (player.position.x<position.x):
+		$AnimatedSprite.flip_h = true
+	else:
+		$AnimatedSprite.flip_h = false
+	
 	
 	#gets the players coordinates and moves the enemy in its direction
 	var direction = (player.position - position).normalized()

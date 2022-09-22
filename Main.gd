@@ -44,9 +44,10 @@ func game_over():
 	$HUD.show_game_over()
 	$Music.stop()
 	$DeathSound.play()
-
 	$Player.setGameStart()
 	newGame = true
+	#get_tree().change_scene("res://StartMenu.tscn")
+	
 
 #summons an enemy in one of three random locations 
 func _on_MobTimer_timeout():
@@ -72,6 +73,7 @@ func _on_endOfMatchTimer_timeout():
 	$HUD.show_round_over()
 	$Music.stop()
 	$Player.setGameStart()
+	
 	
 
 func getSafe():
