@@ -69,7 +69,8 @@ func start(new_position):
 #detects when the player is hit by an enemy. 
 #they die automatically 
 func _on_Player_body_entered(body):
-	hide()
+	#allowing health system - not one hit kill
+	#hide()
 	$CollisionShape2D.set_deferred("disabled", true)
 	emit_signal("hit")
 

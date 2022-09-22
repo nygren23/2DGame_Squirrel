@@ -21,9 +21,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 45.7144
-height = 25.7142
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 59.2853, 60.0004 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 60.7143, 60 )
@@ -43,8 +42,9 @@ frames = SubResource( 1 )
 animation = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.42859, -0.714233 )
 rotation = 1.57079
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( -4.76837e-07, 0.714286 )
@@ -56,7 +56,7 @@ collision_layer = 4
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2( 0.714264, 6.10352e-05 )
+position = Vector2( 0, 6.10352e-05 )
 scale = Vector2( 0.999999, 0.999999 )
 shape = SubResource( 3 )
 

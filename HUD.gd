@@ -15,6 +15,9 @@ func update_acorns(acorns):
 	
 func update_time(time):
 	$TimerLabel.text = str(time)
+
+func update_health(health):
+	$HealthBarPlaceHolder.text = "Health: " + str(health)
 	
 #shows updates the message displayd in the center
 func show_message(text):
