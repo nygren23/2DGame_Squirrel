@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Mob.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Acorn.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
 mob_scene = ExtResource( 2 )
 bullet = ExtResource( 5 )
+acorn_scene = ExtResource( 6 )
 
 [node name="background" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -20,12 +22,15 @@ color = Color( 0.482353, 0.878431, 0.333333, 1 )
 wait_time = 20.0
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 3.005
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AcornTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -40, 61 )
@@ -41,43 +46,46 @@ scale = Vector2( 0.3, 0.3 )
 position = Vector2( 537, 472 )
 
 [node name="enemySpawnPoint0" type="Position2D" parent="."]
-position = Vector2( 1001, 96 )
+position = Vector2( 1063, 17 )
 
 [node name="enemySpawnPoint1" type="Position2D" parent="."]
-position = Vector2( 129, 618 )
+position = Vector2( 14, 684 )
 
 [node name="enemySpawnPoint2" type="Position2D" parent="."]
-position = Vector2( 945, 631 )
+position = Vector2( 1063, 684 )
 
 [node name="enemySpawnPoint3" type="Position2D" parent="."]
-position = Vector2( 91, 101 )
+position = Vector2( 16, 19 )
+
+[node name="acornSpawnPoint0" type="Position2D" parent="."]
+position = Vector2( 533, 138 )
 
 [node name="spawn_marker0" type="Label" parent="."]
-margin_left = 50.0
-margin_top = 94.0
-margin_right = 141.0
-margin_bottom = 108.0
+margin_left = -237.0
+margin_top = 60.0
+margin_right = -140.0
+margin_bottom = 74.0
 text = "spawn_location"
 
 [node name="spawn_marker3" type="Label" parent="."]
-margin_left = 893.0
-margin_top = 626.0
-margin_right = 990.0
-margin_bottom = 640.0
+margin_left = 1108.0
+margin_top = 736.0
+margin_right = 1205.0
+margin_bottom = 750.0
 text = "spawn_location"
 
 [node name="spawn_marker2" type="Label" parent="."]
-margin_left = 71.0
-margin_top = 607.0
-margin_right = 168.0
-margin_bottom = 621.0
+margin_left = -200.0
+margin_top = 617.0
+margin_right = -103.0
+margin_bottom = 631.0
 text = "spawn_location"
 
 [node name="spawn_marker1" type="Label" parent="."]
-margin_left = 948.0
-margin_top = 91.0
-margin_right = 1045.0
-margin_bottom = 105.0
+margin_left = 1195.0
+margin_top = 200.0
+margin_right = 1292.0
+margin_bottom = 214.0
 text = "spawn_location"
 
 [node name="UpgradeButtonTemp" type="Button" parent="."]
@@ -89,6 +97,9 @@ margin_bottom = 10.2
 [connection signal="timeout" from="endOfMatchTimer" to="." method="_on_endOfMatchTimer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
-[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="timeout" from="AcornTimer" to="." method="_on_AcornTimer_timeout"]
+[connection signal="hit" from="Player" to="." method="take_damage"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="pressed" from="UpgradeButtonTemp" to="." method="_on_UpgradeButtonTemp_pressed"]
+[connection signal="start_game_cheated" from="HUD" to="." method="new_game_cheated"]
+

@@ -10,11 +10,13 @@ config_version=4
 
 [application]
 
-config/name="Dodge the Creeps (2D): starter project"
-config/description="A 2D game where you dodge little aliens.
+config/name="Squirrel!"
+config/description="2D high score based Squirrel-themed survival game.
 
-This is the starter project for the video version of the tutorial published on the GDQuest YouTube channel."
-run/main_scene="res://StartMenu.tscn"
+
+By Anand, Blake and Natalie"
+run/main_scene="res://Main.tscn"
+
 config/icon="res://icon.png"
 
 [display]
@@ -56,14 +58,20 @@ click={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+cheat_code={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":true,"control":false,"meta":false,"command":false,"pressed":false,"scancode":78,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
 2d_physics/layer_1="Enviroment"
 2d_physics/layer_2="Player"
-2d_physics/layer_3="Enemy"
+2d_physics/layer_3="Enemy Hitbox"
 2d_physics/layer_4="Projectile"
 2d_physics/layer_5="Bonus"
+2d_physics/layer_6="Enemy HurtBox"
 
 [physics]
 
