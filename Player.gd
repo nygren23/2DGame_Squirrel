@@ -54,10 +54,10 @@ func _process(delta):
 		$AnimatedSprite.animation = "right"
 		$AnimatedSprite.flip_h = direction.x < 0
 		$AnimatedSprite.flip_v = false
-	elif direction.y != 0:
-		$AnimatedSprite.animation = "up"
-		$AnimatedSprite.flip_v = direction.y > 0
-		$AnimatedSprite.flip_h = false
+	#elif direction.y != 0:
+	#	$AnimatedSprite.animation = "up"
+	#	$AnimatedSprite.flip_v = direction.y > 0
+	#	$AnimatedSprite.flip_h = false
 
 #spawns the player
 func start(new_position):

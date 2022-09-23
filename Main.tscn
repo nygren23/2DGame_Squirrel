@@ -16,7 +16,7 @@ acorn_scene = ExtResource( 6 )
 [node name="background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.0980392, 0.945098, 0.027451, 1 )
+color = Color( 0.482353, 0.878431, 0.333333, 1 )
 
 [node name="endOfMatchTimer" type="Timer" parent="."]
 wait_time = 20.0
@@ -34,7 +34,7 @@ wait_time = 2.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -40, 61 )
-scale = Vector2( 0.4, 0.1 )
+scale = Vector2( 0.3, 0.3 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
@@ -88,10 +88,18 @@ margin_right = 1292.0
 margin_bottom = 214.0
 text = "spawn_location"
 
+[node name="UpgradeButtonTemp" type="Button" parent="."]
+anchor_right = 0.011
+anchor_bottom = 0.014
+margin_right = 92.12
+margin_bottom = 10.2
+
 [connection signal="timeout" from="endOfMatchTimer" to="." method="_on_endOfMatchTimer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="AcornTimer" to="." method="_on_AcornTimer_timeout"]
 [connection signal="hit" from="Player" to="." method="take_damage"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="pressed" from="UpgradeButtonTemp" to="." method="_on_UpgradeButtonTemp_pressed"]
 [connection signal="start_game_cheated" from="HUD" to="." method="new_game_cheated"]
+

@@ -62,9 +62,10 @@ func game_over():
 	$HUD.show_game_over()
 	$Music.stop()
 	$DeathSound.play()
-
 	$Player.setGameStart()
 	newGame = true
+	#get_tree().change_scene("res://StartMenu.tscn")
+	
 
 #summons an enemy in one of three random locations 
 func _on_MobTimer_timeout():
@@ -126,4 +127,6 @@ func addToScore(bonus):
 	score += bonus
 	$HUD.update_score(score)
 
+func _on_UpgradeButtonTemp_pressed():
+	get_tree().change_scene("res://UpgradeScreen.tscn")
 

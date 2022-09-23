@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://images/startmenu.png" type="Texture" id=2]
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -111.0
+margin_top = -72.0
+margin_right = 121.0
+margin_bottom = 71.0
+custom_constants/separation = 47
+
+[node name="ControlsButton" type="Button" parent="VBoxContainer"]
+margin_right = 232.0
+margin_bottom = 20.0
+focus_neighbour_top = NodePath("../QuitButton")
+text = "Controls"
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+margin_top = 67.0
+margin_right = 232.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 134.0
+margin_right = 232.0
+margin_bottom = 154.0
+focus_neighbour_bottom = NodePath("../ControlsButton")
+size_flags_horizontal = 3
+text = "Quit"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Level0" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 537, 350 )
+texture = ExtResource( 2 )
+
+[node name="UpgradesButtonTemp" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "Upgrades (temp)"
+
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_ControlsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="UpgradesButtonTemp" to="." method="_on_UpgradesButtonTemp_pressed"]

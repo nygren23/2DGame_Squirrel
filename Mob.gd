@@ -4,8 +4,9 @@ extends RigidBody2D
 
 signal dies
 
-var size = 0
 export var speed = 0 # default speed is used for all enemies that spawn
+var size = 0
+
 onready var player = get_node("/root/Main/Player")
 onready var main = get_node("/root/Main")
 var health = 0
@@ -37,6 +38,11 @@ func _process(delta):
 	#if the game or round ends then the enemy despawns
 	if(main.getSafe()):
 		queue_free()
+	
+	if (player.position.x<position.x):
+		$AnimatedSprite.flip_h = true
+	else:
+		$AnimatedSprite.flip_h = false
 	
 	var movement_speed = 0
 	if (attacking):
