@@ -100,6 +100,5 @@ margin_bottom = 10.2
 [connection signal="timeout" from="AcornTimer" to="." method="_on_AcornTimer_timeout"]
 [connection signal="hit" from="Player" to="." method="take_damage"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
-[connection signal="pressed" from="UpgradeButtonTemp" to="." method="_on_UpgradeButtonTemp_pressed"]
 [connection signal="start_game_cheated" from="HUD" to="." method="new_game_cheated"]
-
+[connection signal="pressed" from="UpgradeButtonTemp" to="." method="_on_UpgradeButtonTemp_pressed"]

@@ -15,8 +15,7 @@ config/description="2D high score based Squirrel-themed survival game.
 
 
 By Anand, Blake and Natalie"
-run/main_scene="res://Main.tscn"
-
+run/main_scene="res://StartMenu.tscn"
 config/icon="res://icon.png"
 
 [display]

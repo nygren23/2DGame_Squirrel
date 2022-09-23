@@ -1,10 +1,8 @@
-
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://images/dog1frame3.png" type="Texture" id=2]
 [ext_resource path="res://images/dog1frame1.png" type="Texture" id=3]
 [ext_resource path="res://images/dog1frame2.png" type="Texture" id=4]
-
 [ext_resource path="res://Mob.gd" type="Script" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -25,21 +23,17 @@ animations = [ {
 "speed": 5.0
 } ]
 
-
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 45.7143
-height = 22.8571
-
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 69.2859, 89.2856 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 60.7144, 49.6429 )
+extents = Vector2( 90.0002, 69.6431 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 27
-font_data = ExtResource( 2 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 58.5714, 58.5715 )
+extents = Vector2( 92.1429, 69.6429 )
 
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
 position = Vector2( 252, 368 )
@@ -51,20 +45,20 @@ contact_monitor = true
 script = ExtResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 30.2344, -30.7143 )
-scale = Vector2( 0.683631, 0.615873 )
+position = Vector2( 2.85713, -12.8571 )
+scale = Vector2( 0.990476, 0.88254 )
 frames = SubResource( 1 )
 animation = "walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 27.1429, -22.8571 )
-
+[node name="overal" type="CollisionShape2D" parent="."]
+position = Vector2( 2.85703, -2.14264 )
 rotation = 1.57079
-shape = SubResource( 4 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 6 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 29.2857, -22.8572 )
-scale = Vector2( 1.21429, 1.21429 )
+position = Vector2( 2.85718, -1.42856 )
+scale = Vector2( 1.82857, 1.78571 )
 rect = Rect2( -50, -40, 100, 80 )
 
 [node name="hitbox" type="Area2D" parent="."]
@@ -72,17 +66,15 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-
-position = Vector2( 29.2857, -22.5 )
-scale = Vector2( 0.999998, 0.999998 )
-
+position = Vector2( 1.42865, -1.78558 )
+scale = Vector2( 0.999997, 0.999997 )
 shape = SubResource( 3 )
 
 [node name="damage_indicator" type="Label" parent="."]
-margin_left = 65.7143
-margin_top = -82.8571
-margin_right = 105.714
-margin_bottom = -61.8571
+margin_left = 95.7143
+margin_top = -50.0
+margin_right = 135.714
+margin_bottom = -29.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 
@@ -90,11 +82,13 @@ custom_fonts/font = SubResource( 4 )
 wait_time = 0.1
 
 [node name="hurtbox" type="Area2D" parent="."]
+position = Vector2( 22.8571, -1.42853 )
 collision_layer = 32
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-scale = Vector2( 1, 1 )
+position = Vector2( -20, -1.42865 )
+scale = Vector2( 0.999999, 0.999999 )
 shape = SubResource( 5 )
 
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

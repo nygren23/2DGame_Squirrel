@@ -47,10 +47,7 @@ func new_game_cheated():
 	
 	
 func take_damage():
-	if $Player.health == 0:
-		game_over()
-	else:
-		$Player.health -= 1
+	game_over()
 	
 #activates when player runs out of health 	
 func game_over():
@@ -64,6 +61,7 @@ func game_over():
 	$DeathSound.play()
 	$Player.setGameStart()
 	newGame = true
+	$Player.setHealth($Player.getMaxHealth())
 	#get_tree().change_scene("res://StartMenu.tscn")
 	
 
@@ -99,6 +97,7 @@ func _on_endOfMatchTimer_timeout():
 	$AcornTimer.stop()
 	$HUD.show_round_over()
 	$Music.stop()
+	$Player.setHealth($Player.getMaxHealth())
 	
 	if(roundnumber%3 == 0):
 		$endOfMatchTimer.set_wait_time($endOfMatchTimer.get_wait_time() + 20)
