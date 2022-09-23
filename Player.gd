@@ -69,11 +69,12 @@ func start(new_position):
 #detects when the player is hit by an enemy. 
 #they die automatically 
 func _on_Player_body_entered(body):
+
 	#allowing health system - not one hit kill
 	#hide()
 	$CollisionShape2D.set_deferred("disabled", true)
 	emit_signal("hit")
-
+  
 #shoots a bullet where ever the mouse is.
 func shoot():
 	if(acorns > 0):

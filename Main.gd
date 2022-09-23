@@ -5,6 +5,7 @@ export (PackedScene) var mob_scene
 export (PackedScene) var bullet
 export (PackedScene) var acorn_scene
 
+var roundnumber = 1
 var newGame = true #If the game has just started. It is used to 
 # differentiate whether it is the beggining of a round or game
 var safe = true # determines whether enemies should be spawning or not
@@ -97,6 +98,13 @@ func _on_endOfMatchTimer_timeout():
 	$AcornTimer.stop()
 	$HUD.show_round_over()
 	$Music.stop()
+	
+	if(roundnumber%3 == 0):
+		$endOfMatchTimer.set_wait_time($endOfMatchTimer.get_wait_time() + 20)
+		if(roundnumber == 3):
+			$MobTimer.set_wait_time($MobTimer.get_wait_time() * 0.5)
+
+	roundnumber +=1
 	$Player.setGameStart()
 	
 #"main" function - runs every frame
