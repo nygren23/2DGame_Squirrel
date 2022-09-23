@@ -6,7 +6,7 @@ signal hit
 var game_start = false #if the game has started yet
 
 var health = 4
-var acorns = 555555555
+var acorns = 5
 
 export var speed = 400.0 #how fast the player moves
 var screen_size = Vector2.ZERO #screen size. Its actual size is set later
