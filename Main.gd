@@ -82,3 +82,7 @@ func getSafe():
 func addToScore(bonus):
 	score += bonus
 	$HUD.update_score(score)
+
+
+func _on_UpgradeButtonTemp_pressed():
+	get_tree().change_scene("res://UpgradeScreen.tscn")

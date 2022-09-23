@@ -80,8 +80,15 @@ margin_right = 1045.0
 margin_bottom = 105.0
 text = "spawn_location"
 
+[node name="UpgradeButtonTemp" type="Button" parent="."]
+anchor_right = 0.011
+anchor_bottom = 0.014
+margin_right = 92.12
+margin_bottom = 10.2
+
 [connection signal="timeout" from="endOfMatchTimer" to="." method="_on_endOfMatchTimer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="pressed" from="UpgradeButtonTemp" to="." method="_on_UpgradeButtonTemp_pressed"]

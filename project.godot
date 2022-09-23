@@ -14,7 +14,7 @@ config/name="Dodge the Creeps (2D): starter project"
 config/description="A 2D game where you dodge little aliens.
 
 This is the starter project for the video version of the tutorial published on the GDQuest YouTube channel."
-run/main_scene="res://Main.tscn"
+run/main_scene="res://StartMenu.tscn"
 config/icon="res://icon.png"
 
 [display]
