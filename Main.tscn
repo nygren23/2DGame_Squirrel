@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Mob.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Acorn.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
 mob_scene = ExtResource( 2 )
 bullet = ExtResource( 5 )
+acorn_scene = ExtResource( 6 )
 
 [node name="background" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -26,6 +28,9 @@ wait_time = 3.005
 
 [node name="StartTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AcornTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -40, 61 )
@@ -51,6 +56,9 @@ position = Vector2( 1063, 684 )
 
 [node name="enemySpawnPoint3" type="Position2D" parent="."]
 position = Vector2( 16, 19 )
+
+[node name="acornSpawnPoint0" type="Position2D" parent="."]
+position = Vector2( 533, 138 )
 
 [node name="spawn_marker0" type="Label" parent="."]
 margin_left = -237.0
@@ -83,5 +91,7 @@ text = "spawn_location"
 [connection signal="timeout" from="endOfMatchTimer" to="." method="_on_endOfMatchTimer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
-[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="timeout" from="AcornTimer" to="." method="_on_AcornTimer_timeout"]
+[connection signal="hit" from="Player" to="." method="take_damage"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="start_game_cheated" from="HUD" to="." method="new_game_cheated"]

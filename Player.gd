@@ -5,10 +5,13 @@ signal hit
 
 var game_start = false #if the game has started yet
 
-var health = 400
+var health = 4
+var acorns = 5
+
 export var speed = 400.0 #how fast the player moves
 var screen_size = Vector2.ZERO #screen size. Its actual size is set later
 var bulletPath = preload('res://Bullet.tscn')
+
 
 #before the game starts. Screen size is set and hides the player
 func _ready():
@@ -66,23 +69,29 @@ func start(new_position):
 #detects when the player is hit by an enemy. 
 #they die automatically 
 func _on_Player_body_entered(body):
-	print("Player hit")
-	health -= 100
-	if health <=0:
-		hide()
-		$CollisionShape2D.set_deferred("disabled", true)
-		emit_signal("hit")
-	
+
+	#allowing health system - not one hit kill
+	#hide()
+	$CollisionShape2D.set_deferred("disabled", true)
+	emit_signal("hit")
+  
 #shoots a bullet where ever the mouse is.
 func shoot():
-	var bullet = bulletPath.instance()
-	get_parent().add_child(bullet)
-	bullet.position = $Position2D.global_position
-	
-	
+	if(acorns > 0):
+		var bullet = bulletPath.instance()
+		get_parent().add_child(bullet)
+		bullet.position = $Position2D.global_position
+		acorns -= 1
+		
 #sets when the game starts.
 func setGameStart():
 	if(game_start):
 		game_start = false
 	else:
 		game_start = true
+		
+func setHealth(newHealth):
+	health = newHealth
+
+func setAcorns(newAcorns):
+	acorns = newAcorns
