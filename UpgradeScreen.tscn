@@ -66,7 +66,7 @@ margin_left = 222.0
 margin_top = 291.0
 margin_right = 356.0
 margin_bottom = 488.0
-text = "show me my fking text!"
+text = "show me my text!"
 
 [node name="HealthLabel" type="RichTextLabel" parent="."]
 margin_left = 370.0
@@ -104,6 +104,7 @@ margin_right = 90.0
 margin_bottom = 697.0
 text = "Help"
 
+[connection signal="pressed" from="VerticalContainer/UpgradeButtons/Speed" to="." method="_on_Speed_pressed"]
 [connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

@@ -19,7 +19,7 @@ var direction = Vector2.ZERO
 #chooses from an array of animation to used. So for there is only one animation.
 func _ready():
 	#sets the size and speed of the mob
-	size = 0.5
+	#size = 0.50
 	speed = 160
 	health = 400
 	attackspeed = 500
@@ -33,8 +33,8 @@ func _ready():
 
 #moves the enemy and despawns them
 func _process(delta):
-	var scale = Vector2((size), (size))
-	set_scale(scale)
+	#var scale = Vector2((size), (size))
+	#set_scale(scale)
 	#if the game or round ends then the enemy despawns
 	if(main.getSafe()):
 		queue_free()

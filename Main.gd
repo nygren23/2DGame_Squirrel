@@ -15,6 +15,7 @@ var score = 0 # current score
 
 #puts the spawn points in an array. 
 func _ready():
+	
 	randomize()
 	enemy_spawn_array = [$enemySpawnPoint0,$enemySpawnPoint1,$enemySpawnPoint2,$enemySpawnPoint3]
 	acorn_spawn_array = [$acornSpawnPoint0]
@@ -62,6 +63,7 @@ func game_over():
 	$Player.setGameStart()
 	newGame = true
 	$Player.setHealth($Player.getMaxHealth())
+	$Player.setAcorns($Player.getMaxAcorns())
 	#get_tree().change_scene("res://StartMenu.tscn")
 	
 
@@ -98,6 +100,7 @@ func _on_endOfMatchTimer_timeout():
 	$HUD.show_round_over()
 	$Music.stop()
 	$Player.setHealth($Player.getMaxHealth())
+	$Player.setAcorns($Player.getMaxAcorns())
 	
 	if(roundnumber%3 == 0):
 		$endOfMatchTimer.set_wait_time($endOfMatchTimer.get_wait_time() + 20)
@@ -127,5 +130,6 @@ func addToScore(bonus):
 	$HUD.update_score(score)
 
 func _on_UpgradeButtonTemp_pressed():
-	get_tree().change_scene("res://UpgradeScreen.tscn")
-
+	get_tree().change_scene("res://Main")
+	#get_tree().change_scene("/root/Main/UpgradeScreen.tscn")
+	
