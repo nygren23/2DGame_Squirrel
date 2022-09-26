@@ -18,4 +18,5 @@ func _process(delta):
 func _on_Area2D_area_entered(area):
 	queue_free()
 	player.acorns += 1
+	player.health +=1
 

@@ -8,7 +8,7 @@ onready var player = get_node("/root/Main/Player")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(player.getMaxHealth())
+	print("hello")
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,4 +32,16 @@ func _on_ContinueButton_pressed():
 
 
 func _on_Speed_pressed():
-	Player.setSpeed(900)
+	GlobalStats.setSpeed(GlobalStats.getSpeed() + 50)
+
+
+
+
+
+
+func _on_Health_pressed():
+	GlobalStats.setMaxHealth(GlobalStats.getMaxHealth() + 1)
+
+
+func _on_Acorn_Damage_pressed():
+	GlobalStats.setAcornDamage(GlobalStats.getAcornDamage() + 100)

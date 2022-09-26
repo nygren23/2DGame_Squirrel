@@ -18,6 +18,10 @@ By Anand, Blake and Natalie"
 run/main_scene="res://StartMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalStats="*res://global_stats.gd"
+
 [display]
 
 window/size/width=1080
@@ -71,6 +75,7 @@ cheat_code={
 2d_physics/layer_4="Projectile"
 2d_physics/layer_5="Bonus"
 2d_physics/layer_6="Enemy HurtBox"
+2d_physics/layer_7="acorn_drop"
 
 [physics]
 

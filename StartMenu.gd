@@ -9,6 +9,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#$VBoxContainer.add_constant_override("separation", 4)
+	$UpgradesButtonTemp.hide()
 	$VBoxContainer/StartButton.grab_focus()
 
 
@@ -32,3 +33,4 @@ func _on_ControlsButton_pressed():
 
 func _on_UpgradesButtonTemp_pressed():
 	get_tree().change_scene("res://UpgradeScreen.tscn")
+	

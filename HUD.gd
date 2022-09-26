@@ -6,6 +6,9 @@ signal start_game
 signal start_game_cheated
 onready var player = get_node("/root/Main")
 
+func _ready():
+	$Upgrade.hide()
+
 # Updates the score displayed at the top
 func update_score(score):
 	$ScoreLabel.text = str(score)
@@ -41,12 +44,18 @@ func show_round_over():
 	$MessageLabel.show()
 	yield(get_tree().create_timer(1.0), "timeout")
 	$Start.show()
+	$Upgrade.show()
 
 #This function starts the round
 func _on_Start_pressed():
 	$Start.hide()
+	$Upgrade.hide()
 	$NuxMode.hide()
+	GlobalStats.setRoundNumber(GlobalStats.getRoundNumber()+1)
+	$Round_Number.text = (str("Round: ", GlobalStats.getRoundNumber()))
+	$Round_Number.show()
 	emit_signal("start_game")
+	
 
 #This will hide the message displayed at the center. 
 func _on_MessageTimer_timeout():
@@ -69,3 +78,7 @@ func show_all():
 	$HealthBarPlaceHolder.show()
 	$Acorns.show()
 	
+
+
+func _on_Upgrade_pressed():
+	get_tree().change_scene("res://UpgradeScreen.tscn")

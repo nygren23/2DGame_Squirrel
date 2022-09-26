@@ -22,7 +22,7 @@ color = Color( 0.0980392, 0.945098, 0.027451, 1 )
 wait_time = 20.0
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 3.005
+wait_time = 3.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
 

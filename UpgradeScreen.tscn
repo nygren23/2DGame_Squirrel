@@ -32,15 +32,15 @@ margin_right = 114.0
 margin_bottom = 20.0
 text = "Increase Speed "
 
-[node name="Strength" type="Button" parent="VerticalContainer/UpgradeButtons"]
+[node name="Acorn_Damage" type="Button" parent="VerticalContainer/UpgradeButtons"]
 margin_left = 144.0
-margin_right = 268.0
+margin_right = 249.0
 margin_bottom = 20.0
-text = "Increase Strength"
+text = "Acorn Damage"
 
 [node name="Health" type="Button" parent="VerticalContainer/UpgradeButtons"]
-margin_left = 298.0
-margin_right = 411.0
+margin_left = 279.0
+margin_right = 392.0
 margin_bottom = 20.0
 text = "Increase Health"
 
@@ -105,6 +105,8 @@ margin_bottom = 697.0
 text = "Help"
 
 [connection signal="pressed" from="VerticalContainer/UpgradeButtons/Speed" to="." method="_on_Speed_pressed"]
+[connection signal="pressed" from="VerticalContainer/UpgradeButtons/Acorn_Damage" to="." method="_on_Acorn_Damage_pressed"]
+[connection signal="pressed" from="VerticalContainer/UpgradeButtons/Health" to="." method="_on_Health_pressed"]
 [connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

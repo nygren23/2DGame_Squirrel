@@ -27,7 +27,22 @@ func new_game():
 		score = 0
 		newGame = false
 		$HUD.update_score(score)
-		
+		#GlobalStats.setNumAcorns(20)
+	
+	$Player.setAcorns(GlobalStats.getNumAcorns())
+	$Player.setSpeed(GlobalStats.getSpeed());
+	$Player.setMaxHealth(GlobalStats.getSpeed());
+	$Player.setHealth(GlobalStats.getMaxHealth())
+	
+	if(GlobalStats.getRoundNumber()%3 == 0):
+		GlobalStats.setRountTimer(GlobalStats.getRoundTimer()+20)
+		GlobalStats.setMobTimer(GlobalStats.getMobTimer() *0.5)
+	
+	$endOfMatchTimer.set_wait_time(GlobalStats.getRoundTimer())
+	$MobTimer.set_wait_time(GlobalStats.getMobTimer())
+	
+	#$Player.setAcorns($Player.getMaxAcorns())
+	
 	$Player.start($StartPosition.position) #spawns the player
 	$StartTimer.start()
 	$Music.play()
@@ -86,8 +101,8 @@ func _on_AcornTimer_timeout():
 
 #adds ten to the score for every second the player lives 
 func _on_ScoreTimer_timeout():
-	score += 20
-	$HUD.update_score(score)
+	GlobalStats.setScore(GlobalStats.getScore()+20)
+	$HUD.update_score(GlobalStats.getScore())
 
 
 #plays when the match is over. 
@@ -99,15 +114,15 @@ func _on_endOfMatchTimer_timeout():
 	$AcornTimer.stop()
 	$HUD.show_round_over()
 	$Music.stop()
-	$Player.setHealth($Player.getMaxHealth())
-	$Player.setAcorns($Player.getMaxAcorns())
+	GlobalStats.setNumAcorns($Player.getAcorns())
+	#$Player.setHealth($Player.getMaxHealth())
+	#$Player.setAcorns($Player.getMaxAcorns())
 	
-	if(roundnumber%3 == 0):
-		$endOfMatchTimer.set_wait_time($endOfMatchTimer.get_wait_time() + 20)
-		if(roundnumber == 3):
-			$MobTimer.set_wait_time($MobTimer.get_wait_time() * 0.5)
+	#if(roundnumber%3 == 0):
+	#	$endOfMatchTimer.set_wait_time($endOfMatchTimer.get_wait_time() + 20)
+	#	$MobTimer.set_wait_time($MobTimer.get_wait_time() * 0.5)
 
-	roundnumber +=1
+	#roundnumber +=1
 	$Player.setGameStart()
 	
 #"main" function - runs every frame
@@ -126,8 +141,8 @@ func getSafe():
 	return safe
 
 func addToScore(bonus):
-	score += bonus
-	$HUD.update_score(score)
+	GlobalStats.setScore(GlobalStats.getScore() + 100)
+	$HUD.update_score(GlobalStats.getScore())
 
 func _on_UpgradeButtonTemp_pressed():
 	get_tree().change_scene("res://Main")

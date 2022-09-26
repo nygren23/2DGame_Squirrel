@@ -5,7 +5,7 @@ signal hit
 
 var game_start = false #if the game has started yet
 
-var health = 444
+var health = 4
 var acorns = 20
 
 export var speed = 400.0 #how fast the player moves
@@ -100,11 +100,20 @@ func setAcorns(newAcorns):
 
 func getMaxHealth():
 	return maxHealth
+
+func setMaxHealth(newMaxHealth):
+	maxHealth = newMaxHealth
 	
 func getMaxAcorns():
 	return maxAcorns
+
+func getAcorns():
+	return acorns
 	
 func setSpeed(new_speed):
 	speed = new_speed
+	
+func getSpeed():
+	return speed
 	
 	

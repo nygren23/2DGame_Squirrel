@@ -75,7 +75,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 # if the enemy  gets hit by a bullet they despawn and 100
 # points to the score board 
 func _on_hitbox_area_entered(area):
-	health = health - 100
+	health = health - GlobalStats.getAcornDamage()
 	
 	$damage_indicator.text = "-100"
 	$damage_indicator.show()
