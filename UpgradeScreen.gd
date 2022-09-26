@@ -29,19 +29,23 @@ func _on_ContinueButton_pressed():
 	get_tree().change_scene("res://Main.tscn")
 	
 
-
-
 func _on_Speed_pressed():
-	GlobalStats.setSpeed(GlobalStats.getSpeed() + 50)
-
-
-
-
-
+	if(GlobalStats.numAcorns > 0):
+		GlobalStats.setSpeed(GlobalStats.getSpeed() + 50)
+		GlobalStats.setNumAcorns(GlobalStats.getRoundNumber()-1)
+	else:
+		print("Not Enough Acorns")
 
 func _on_Health_pressed():
-	GlobalStats.setMaxHealth(GlobalStats.getMaxHealth() + 1)
-
-
+	if(GlobalStats.numAcorns > 0):
+		GlobalStats.setMaxHealth(GlobalStats.getMaxHealth() + 1)
+		GlobalStats.setNumAcorns(GlobalStats.getRoundNumber()-1)
+	else:
+		print("Not Enough Acorns")
+		
 func _on_Acorn_Damage_pressed():
-	GlobalStats.setAcornDamage(GlobalStats.getAcornDamage() + 100)
+	if(GlobalStats.numAcorns > 0):
+		GlobalStats.setAcornDamage(GlobalStats.getAcornDamage() + 100)
+		GlobalStats.setNumAcorns(GlobalStats.getRoundNumber()-1)
+	else:
+		print("Not Enough Acorns")

@@ -18,7 +18,7 @@ func _ready():
 	
 	randomize()
 	enemy_spawn_array = [$enemySpawnPoint0,$enemySpawnPoint1,$enemySpawnPoint2,$enemySpawnPoint3]
-	acorn_spawn_array = [$acornSpawnPoint0]
+	acorn_spawn_array = [$asp1,$asp2,$asp3,$asp4,$asp5]
 	
 # starts a new round or game. 
 func new_game():
@@ -94,9 +94,13 @@ func _on_MobTimer_timeout():
 	
 #spawns acorns on Timer - only spawns from one position for now	
 func _on_AcornTimer_timeout():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var my_random_number = rng.randf_range(0,5)
+	
 	var acorn = acorn_scene.instance()
 	get_parent().add_child(acorn)
-	acorn.position = acorn_spawn_array[0].global_position
+	acorn.position = acorn_spawn_array[my_random_number].global_position
 
 
 #adds ten to the score for every second the player lives 

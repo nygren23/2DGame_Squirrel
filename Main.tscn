@@ -30,7 +30,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="AcornTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.593
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -40, 61 )
@@ -57,8 +57,20 @@ position = Vector2( 1063, 684 )
 [node name="enemySpawnPoint3" type="Position2D" parent="."]
 position = Vector2( 16, 19 )
 
-[node name="acornSpawnPoint0" type="Position2D" parent="."]
-position = Vector2( 533, 138 )
+[node name="asp1" type="Position2D" parent="."]
+position = Vector2( 961, 384 )
+
+[node name="asp2" type="Position2D" parent="."]
+position = Vector2( 536, 351 )
+
+[node name="asp3" type="Position2D" parent="."]
+position = Vector2( 557, 616 )
+
+[node name="asp4" type="Position2D" parent="."]
+position = Vector2( 537, 138 )
+
+[node name="asp5" type="Position2D" parent="."]
+position = Vector2( 155, 350 )
 
 [node name="spawn_marker0" type="Label" parent="."]
 margin_left = -237.0
