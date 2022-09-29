@@ -8,15 +8,7 @@ func _process(delta):
 	if(main.getSafe()):
 		queue_free()
 
-#func _on_Area2D_body_entered(body):
-#	print(body.name)
-#	if body.name == "Player":
-#		queue_free()
-#		player.acorns += 1
-
-
 func _on_Area2D_area_entered(area):
 	queue_free()
-	player.acorns += 3
-	player.health +=1
+	player.acorns += 1
 

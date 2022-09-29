@@ -22,7 +22,7 @@ color = Color( 0.0980392, 0.945098, 0.027451, 1 )
 wait_time = 20.0
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -30,7 +30,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="AcornTimer" type="Timer" parent="."]
-wait_time = 0.593
+wait_time = 2.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -40, 61 )

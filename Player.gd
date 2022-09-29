@@ -7,6 +7,8 @@ var game_start = false #if the game has started yet
 
 var health = 4
 var acorns = 20
+var hitRecovery = false
+var hitRecoveryCounter = 0
 
 export var speed = 400.0 #how fast the player moves
 var screen_size = Vector2.ZERO #screen size. Its actual size is set later
@@ -20,6 +22,7 @@ func _ready():
 	hide()
 
 func _process(delta):
+			
 	var direction = Vector2.ZERO
 	
 	#shoots a bullet if the game has started
@@ -71,11 +74,14 @@ func start(new_position):
 #they die automatically 
 func _on_Player_body_entered(body):
 	print('player hit')
-	health -=1 
-	if (health <= 0):
-		hide()
-		$CollisionShape2D.set_deferred("disabled", true)
-		emit_signal("hit")
+	print(body.name)
+	if body.name == "Mob":
+		health -= 1 
+		
+		if (health <= 0):
+			hide()
+			$CollisionShape2D.set_deferred("disabled", true)
+			emit_signal("hit")
   
 #shoots a bullet where ever the mouse is.
 func shoot():

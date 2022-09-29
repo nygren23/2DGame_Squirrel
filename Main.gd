@@ -27,21 +27,24 @@ func new_game():
 		score = 0
 		newGame = false
 		$HUD.update_score(score)
-		#GlobalStats.setNumAcorns(20)
+			
+	if GlobalStats.nuxModeFlag:
+		$Player.setAcorns(GlobalStats.getNuxNumAcorns())
+		$Player.setMaxHealth(GlobalStats.getNuxMaxHealth())
+		$Player.setHealth(GlobalStats.getNuxMaxHealth())
+	else:	
+		$Player.setAcorns(GlobalStats.getNumAcorns())
+		$Player.setMaxHealth(GlobalStats.getMaxHealth())
+		$Player.setHealth(GlobalStats.getMaxHealth())
 	
-	$Player.setAcorns(GlobalStats.getNumAcorns())
-	$Player.setSpeed(GlobalStats.getSpeed());
-	$Player.setMaxHealth(GlobalStats.getSpeed());
-	$Player.setHealth(GlobalStats.getMaxHealth())
-	
+	$Player.setSpeed(GlobalStats.getSpeed())
 	if(GlobalStats.getRoundNumber()%3 == 0):
 		GlobalStats.setRountTimer(GlobalStats.getRoundTimer()+20)
 		GlobalStats.setMobTimer(GlobalStats.getMobTimer() *0.5)
 	
 	$endOfMatchTimer.set_wait_time(GlobalStats.getRoundTimer())
 	$MobTimer.set_wait_time(GlobalStats.getMobTimer())
-	
-	#$Player.setAcorns($Player.getMaxAcorns())
+	$AcornTimer.set_wait_time(GlobalStats.getAcornTimer())
 	
 	$Player.start($StartPosition.position) #spawns the player
 	$StartTimer.start()
@@ -55,11 +58,6 @@ func new_game():
 	$MobTimer.start()
 	$AcornTimer.start()
 	$endOfMatchTimer.start()
-	
-func new_game_cheated():
-	$Player.setAcorns(999)
-	$Player.setHealth(999)
-	new_game()
 	
 	
 func take_damage():

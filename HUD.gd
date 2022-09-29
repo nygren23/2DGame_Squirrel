@@ -11,13 +11,13 @@ func _ready():
 
 # Updates the score displayed at the top
 func update_score(score):
-	$ScoreLabel.text = str(score)
+	$ScoreLabel.text = "Score: " + str(score)
 
 func update_acorns(acorns):
 	$Acorns.text = "Acorns: " + str(acorns)
 	
 func update_time(time):
-	$TimerLabel.text = str(time)
+	$TimerLabel.text = "Time Left: " + str(time)
 
 func update_health(health):
 	$HealthBarPlaceHolder.text = "Health: " + str(health)
@@ -64,7 +64,8 @@ func _on_MessageTimer_timeout():
 func _on_NuxMode_pressed():
 	$NuxMode.hide()
 	$Start.hide()
-	emit_signal("start_game_cheated")
+	GlobalStats.nuxModeFlag = true
+	emit_signal("start_game")
 	
 func hide_all():
 	$ScoreLabel.hide()

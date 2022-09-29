@@ -34,13 +34,13 @@ text = "Increase Speed "
 
 [node name="Acorn_Damage" type="Button" parent="VerticalContainer/UpgradeButtons"]
 margin_left = 144.0
-margin_right = 249.0
+margin_right = 308.0
 margin_bottom = 20.0
-text = "Acorn Damage"
+text = "Increase Acorn Damage"
 
 [node name="Health" type="Button" parent="VerticalContainer/UpgradeButtons"]
-margin_left = 279.0
-margin_right = 392.0
+margin_left = 338.0
+margin_right = 451.0
 margin_bottom = 20.0
 text = "Increase Health"
 
@@ -51,30 +51,27 @@ margin_right = 576.0
 margin_bottom = 508.0
 
 [node name="SpeedLabel" type="RichTextLabel" parent="."]
-margin_left = 94.0
-margin_top = 288.0
-margin_right = 184.0
-margin_bottom = 535.0
-text = "speed text
-blah blah
-blah 
+margin_left = 78.0
+margin_top = 285.0
+margin_right = 201.0
+margin_bottom = 532.0
+text = "0"
 
-/...."
-
-[node name="StrengthLabel" type="RichTextLabel" parent="."]
-margin_left = 222.0
-margin_top = 291.0
-margin_right = 356.0
-margin_bottom = 488.0
-text = "show me my text!"
+[node name="DamageLabel" type="RichTextLabel" parent="."]
+margin_left = 232.0
+margin_top = 284.0
+margin_right = 366.0
+margin_bottom = 541.0
+text = "0"
 
 [node name="HealthLabel" type="RichTextLabel" parent="."]
-margin_left = 370.0
-margin_top = 290.0
-margin_right = 488.0
-margin_bottom = 520.0
+margin_left = 407.0
+margin_top = 281.0
+margin_right = 525.0
+margin_bottom = 511.0
 rect_min_size = Vector2( 30, 0 )
-text = "health text where? "
+text = "0
+"
 
 [node name="ContinueButton" type="Button" parent="."]
 margin_left = 922.0
@@ -103,6 +100,14 @@ margin_top = 677.0
 margin_right = 90.0
 margin_bottom = 697.0
 text = "Help"
+
+[node name="AcornsLeft" type="Label" parent="."]
+margin_left = 652.0
+margin_top = 70.0
+margin_right = 865.0
+margin_bottom = 135.0
+text = "0
+"
 
 [connection signal="pressed" from="VerticalContainer/UpgradeButtons/Speed" to="." method="_on_Speed_pressed"]
 [connection signal="pressed" from="VerticalContainer/UpgradeButtons/Acorn_Damage" to="." method="_on_Acorn_Damage_pressed"]

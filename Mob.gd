@@ -20,9 +20,9 @@ var direction = Vector2.ZERO
 func _ready():
 	#sets the size and speed of the mob
 	#size = 0.50
-	speed = 160
+	speed = 90
 	health = 400
-	attackspeed = 500
+	attackspeed = 300
 	
 	$AnimatedSprite.play()
 	var mob_types = $AnimatedSprite.frames.get_animation_names()
@@ -47,19 +47,20 @@ func _process(delta):
 	var movement_speed = 0
 	if (attacking):
 		movement_speed = attackspeed
-		
 		counter +=1
 		if(counter == 15):
-			counter =0
+			counter = 0
 			attacking = false
 			cooldown = true
 			
-	
+	#cooldown should be 2 seconds (assuming 60 fps)
 	elif(cooldown):
+		$AnimatedSprite.stop()
 		counter +=1
-		if(counter == 75):
+		if(counter == 120):
 			counter = 0
 			cooldown = false
+			$AnimatedSprite.play()
 	
 	else:
 		movement_speed = speed
@@ -81,7 +82,7 @@ func _on_hitbox_area_entered(area):
 	$damage_indicator.show()
 	$damage_indicator_timer.start();
 	
-	if(health<=0):
+	if(health <= 0):
 		main.addToScore(100)
 		queue_free()
 
