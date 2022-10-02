@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DogWhimperWhineCry PE918602.mp3-902b779d54545ddfc2a1ab00a6d4c748.mp3str"
+
+[deps]
+
+source_file="res://DogWhimperWhineCry PE918602.mp3"
+dest_files=[ "res://.import/DogWhimperWhineCry PE918602.mp3-902b779d54545ddfc2a1ab00a6d4c748.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

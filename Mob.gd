@@ -84,7 +84,9 @@ func _on_hitbox_area_entered(area):
 	
 	if(health <= 0):
 		main.addToScore(100)
+		main.playMobDeath()
 		queue_free()
+		
 
 
 func _on_damage_indicator_timer_timeout():

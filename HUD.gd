@@ -8,7 +8,7 @@ onready var player = get_node("/root/Main")
 
 func _ready():
 	$Upgrade.hide()
-
+	
 # Updates the score displayed at the top
 func update_score(score):
 	$ScoreLabel.text = "Score: " + str(score)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Pixelland.mp3-49dbb89b073f2cedc03008c33e25b09b.mp3str"
+
+[deps]
+
+source_file="res://Pixelland.mp3"
+dest_files=[ "res://.import/Pixelland.mp3-49dbb89b073f2cedc03008c33e25b09b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

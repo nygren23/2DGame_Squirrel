@@ -12,6 +12,7 @@ var safe = true # determines whether enemies should be spawning or not
 var enemy_spawn_array # array of all the spawn points for enemies 
 var acorn_spawn_array
 var score = 0 # current score 
+var endmusicstarted = false
 
 #puts the spawn points in an array. 
 func _ready():
@@ -26,7 +27,7 @@ func new_game():
 	if(newGame):
 		score = 0
 		newGame = false
-		$HUD.update_score(score)
+		$HUD.update_score(GlobalStats.getScore())
 			
 	if GlobalStats.nuxModeFlag:
 		$Player.setAcorns(GlobalStats.getNuxNumAcorns())
@@ -48,6 +49,7 @@ func new_game():
 	
 	$Player.start($StartPosition.position) #spawns the player
 	$StartTimer.start()
+	#$endofroundmusic.stop()
 	$Music.play()
 	
 	$HUD.show_message("Get ready...")
@@ -73,6 +75,8 @@ func game_over():
 	$HUD.show_game_over()
 	$Music.stop()
 	$DeathSound.play()
+	
+	print("Game Over")
 	$Player.setGameStart()
 	newGame = true
 	$Player.setHealth($Player.getMaxHealth())
@@ -116,6 +120,7 @@ func _on_endOfMatchTimer_timeout():
 	$AcornTimer.stop()
 	$HUD.show_round_over()
 	$Music.stop()
+	#$endofroundmusic.play()
 	GlobalStats.setNumAcorns($Player.getAcorns())
 	#$Player.setHealth($Player.getMaxHealth())
 	#$Player.setAcorns($Player.getMaxAcorns())
@@ -129,6 +134,16 @@ func _on_endOfMatchTimer_timeout():
 	
 #"main" function - runs every frame
 func _process(delta):
+	if(safe):
+		if (!endmusicstarted):
+			$endofroundmusic.play()
+			endmusicstarted = true
+			
+		
+	else:
+		endmusicstarted = false
+		$endofroundmusic.stop()
+		
 	if $Player.game_start:
 		$HUD.show_all()
 		$HUD.update_time(int($endOfMatchTimer.time_left))
@@ -149,4 +164,7 @@ func addToScore(bonus):
 func _on_UpgradeButtonTemp_pressed():
 	get_tree().change_scene("res://Main")
 	#get_tree().change_scene("/root/Main/UpgradeScreen.tscn")
-	
+
+func playMobDeath():
+	$mobdeathsound.play()
+	$mobdeathsound.stop()

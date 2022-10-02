@@ -36,5 +36,6 @@ func _process(delta):
 # this destroys the bullet when it hits an enemy
 func _on_Bullet_area_entered(area):
 	print("enemy hit")
+	
 	queue_free()
 

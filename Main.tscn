@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Mob.tscn" type="PackedScene" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Acorn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Pixelland.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Komiku_-_03_-_Mushrooms.mp3" type="AudioStream" id=8]
+[ext_resource path="res://videogame-death-sound-43894.mp3" type="AudioStream" id=9]
+[ext_resource path="res://DogWhimperWhineCry PE918602.mp3" type="AudioStream" id=10]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -33,14 +37,23 @@ one_shot = true
 wait_time = 2.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -40, 61 )
-scale = Vector2( 0.4, 0.1 )
+position = Vector2( -97, 81 )
+scale = Vector2( 0.335786, 0.320327 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = 2.622
+
+[node name="mobdeathsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="endofroundmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 537, 472 )

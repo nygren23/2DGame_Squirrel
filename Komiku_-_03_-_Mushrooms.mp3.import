@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Komiku_-_03_-_Mushrooms.mp3-3a578c86d11a9c146ff5e1d1ddacd557.mp3str"
+
+[deps]
+
+source_file="res://Komiku_-_03_-_Mushrooms.mp3"
+dest_files=[ "res://.import/Komiku_-_03_-_Mushrooms.mp3-3a578c86d11a9c146ff5e1d1ddacd557.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

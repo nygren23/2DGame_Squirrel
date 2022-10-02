@@ -86,6 +86,7 @@ func _on_Player_body_entered(body):
 #shoots a bullet where ever the mouse is.
 func shoot():
 	if(acorns > 0):
+		$gunsound.play()
 		var bullet = bulletPath.instance()
 		get_parent().add_child(bullet)
 		bullet.position = $Position2D.global_position
