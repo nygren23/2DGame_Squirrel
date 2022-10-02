@@ -71,19 +71,19 @@ position = Vector2( 1063, 684 )
 position = Vector2( 16, 19 )
 
 [node name="asp1" type="Position2D" parent="."]
-position = Vector2( 961, 384 )
+position = Vector2( 266, 165 )
 
 [node name="asp2" type="Position2D" parent="."]
-position = Vector2( 536, 351 )
+position = Vector2( 684, 404 )
 
 [node name="asp3" type="Position2D" parent="."]
-position = Vector2( 557, 616 )
+position = Vector2( -83, -88 )
 
 [node name="asp4" type="Position2D" parent="."]
-position = Vector2( 537, 138 )
+position = Vector2( 297, -90 )
 
 [node name="asp5" type="Position2D" parent="."]
-position = Vector2( 155, 350 )
+position = Vector2( -102, 325 )
 
 [node name="spawn_marker0" type="Label" parent="."]
 margin_left = -237.0

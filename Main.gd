@@ -13,6 +13,7 @@ var enemy_spawn_array # array of all the spawn points for enemies
 var acorn_spawn_array
 var score = 0 # current score 
 var endmusicstarted = false
+var screen_size = Vector2.ZERO
 
 #puts the spawn points in an array. 
 func _ready():
@@ -20,6 +21,7 @@ func _ready():
 	randomize()
 	enemy_spawn_array = [$enemySpawnPoint0,$enemySpawnPoint1,$enemySpawnPoint2,$enemySpawnPoint3]
 	acorn_spawn_array = [$asp1,$asp2,$asp3,$asp4,$asp5]
+	
 	
 # starts a new round or game. 
 func new_game():
@@ -99,10 +101,14 @@ func _on_AcornTimer_timeout():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var my_random_number = rng.randf_range(0,5)
+	var my_random_x = rng.randf_range(-230,800)
+	var my_random_y = rng.randf_range(-175,450)
 	
 	var acorn = acorn_scene.instance()
 	get_parent().add_child(acorn)
-	acorn.position = acorn_spawn_array[my_random_number].global_position
+	#acorn.position = acorn_spawn_array[my_random_number].global_position
+	acorn.position.x = my_random_x
+	acorn.position.y = my_random_y
 
 
 #adds ten to the score for every second the player lives 

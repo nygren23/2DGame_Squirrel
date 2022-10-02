@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://images/upgradescreen.png" type="Texture" id=1]
 [ext_resource path="res://UpgradeScreen.gd" type="Script" id=2]
 [ext_resource path="res://Komiku_-_03_-_Mushrooms.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 4 )
 
 [node name="UpgradeScreen" type="Control"]
 anchor_right = 1.0
@@ -56,6 +73,7 @@ margin_left = 78.0
 margin_top = 285.0
 margin_right = 201.0
 margin_bottom = 532.0
+custom_fonts/normal_font = SubResource( 2 )
 text = "0"
 
 [node name="DamageLabel" type="RichTextLabel" parent="."]
@@ -63,6 +81,7 @@ margin_left = 232.0
 margin_top = 284.0
 margin_right = 366.0
 margin_bottom = 541.0
+custom_fonts/normal_font = SubResource( 3 )
 text = "0"
 
 [node name="HealthLabel" type="RichTextLabel" parent="."]
@@ -71,6 +90,7 @@ margin_top = 281.0
 margin_right = 525.0
 margin_bottom = 511.0
 rect_min_size = Vector2( 30, 0 )
+custom_fonts/normal_font = SubResource( 4 )
 text = "0
 "
 
@@ -107,6 +127,7 @@ margin_left = 652.0
 margin_top = 70.0
 margin_right = 865.0
 margin_bottom = 135.0
+custom_fonts/font = SubResource( 1 )
 text = "0
 "
 
